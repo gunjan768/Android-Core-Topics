@@ -1,0 +1,16 @@
+In Android, a service is used to run some background task even when the user interface element which initiated that task is no more in foreground.
+
+For example: In a social networking app where the user wants to upload a video to the server, the video should continue to get uploaded in background even when the application who 
+requested the video to be uploaded is no more in foreground (e.g. the user receives a call in the meantime).
+
+I am assuming in your case, you want the song to continue to play even when your user interface element (the music app) is not in foreground.
+
+Therefore definitely service is the way to go.
+
+In Android there are two types of services (http://developer.android.com/guide/components/services.html)
+
+Started Service : Used for long running task where intermediate updates are not required. So for example if you want to upload a video in background and only intimate the user that the upload was a success or a failure, then you use a started service and use notifications to inform the user of the status (success or failure)
+Bound Service : Used for long running task where there is a client/server relationship between the invoker (in this case the app) and the service.
+In android you can create a service which is started and bound at the same time. My suggestion would be to create such a service. The started part of the service will play the song in the background and the bound part of the service will provide updates of the current position of the song being played.
+
+In the meantime, if the app goes in background, then because the service is started the song will continue to play without providing updates of the current position of the song.

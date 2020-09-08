@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.sensors">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- For using google play services -->
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" /> <!-- For using activity recognition service -->
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+
+    <application
+        android:name=".utils.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity_recognition.RecognitionActivity" />
+        <activity android:name=".job_scheduler.JobSchedulerActivity" />
+        <activity android:name=".job_intent_service.JobIntentServiceActivity" />
+        <activity android:name=".service_class.ForegroundActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".sensors.SensorActivity" />
+
+        <service android:name=".service_class.ExampleService" />
+        <service
+            android:name=".job_intent_service.ExampleJobIntentService"
+            android:permission="android.permission.BIND_JOB_SERVICE" /> <!-- BIND_JOB_SERVICE is the permission needed by JobScheduler for job service -->
+        <service
+            android:name=".job_scheduler.ExampleJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <service
+            android:name=".activity_recognition.ActivityRecognitionService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <receiver android:name=".activity_recognition.BroadcastReceiverJobIntentService" />
+
+    </application>
+
+</manifest>

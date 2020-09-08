@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.0"
+
+    defaultConfig {
+        applicationId "com.example.sensors"
+        minSdkVersion 24
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // For google play services all. It contains all the services embedded in it.
+    // implementation 'com.google.android.gms:play-services:12.0.1'
+
+    // If you see above dependency then you will get warning : Avoid using bundled version of Google Play services SDK. In versions of Google Play
+    // services prior to 6.5, you had to compile the entire package of APIs into your app. In some cases, doing so made it more difficult to keep
+    // the number of methods in your app (including framework APIs, library methods, and your own code) under the 65,536 limit. From version 6.5,
+    // you can instead selectively compile Google Play service APIs into your app.
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+}
