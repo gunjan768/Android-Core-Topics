@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.broadcastreceiver">
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+<!--     As we are using explicit broadcast we may avoid using intent filters and action. In implicit broadcast by using intent filters, exported is automatically
+         set to true. But in explicit we have to explicitly mention the exported to true. When exported is true then it will be able to receive the broadcasts from
+        other app. By default ( if we are using explicit one ) exported is false -->
+<!--        <receiver android:name=".UserBroadcastReceiver"-->
+<!--            android:exported="true"/>-->
+
+
+
+<!--      *************************************** When sender and receiver are in the different app and if using action **************************************** -->
+
+<!--     Broadcast sender ( an app which is used to send the broadcast ) is using the action so we are required to mention the same action name here in the
+         receiver ( this app is a receiver ) also  -->
+
+        <receiver android:name=".UserBroadcastReceiver">
+            <intent-filter>
+                <action android:name="MALLIKA_GUNJAN_EXAMPLE_ACTION" />
+            </intent-filter>
+        </receiver>
+
+
+<!--    ******************************************************************************************************************************************************** -->
+
+
+    </application>
+
+</manifest>
