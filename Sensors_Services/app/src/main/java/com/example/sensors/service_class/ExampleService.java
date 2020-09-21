@@ -12,14 +12,14 @@ import androidx.core.app.NotificationCompat;
 import com.example.sensors.utils.App;
 import com.example.sensors.R;
 
-// The foreground contains the applications the user is working on, and the background contains the applications that are behind the scenes. Foreground refers to
-// the active apps which consume data and are currently running on the mobile. Background refers to the data used when the app is doing some activity in the
-// background, which is not active right now.
+// The foreground contains the applications the user is working on, and the background contains the applications that are behind the scenes. Foreground
+// refers to the active apps which consume data and are currently running on the mobile. Background refers to the data used when the app is doing some
+// activity in the background, which is not active right now.
 
 public class ExampleService extends Service
 {
-    // Bond services are the services where other components can communicate back and forth by binding to it. And for bond services we need onBind() method. Our
-    // is a starter service hence we don't need the onBind() method so we kept it empty.
+    // Bond services are the services where other components can communicate back and forth by binding to it. And for bond services we need onBind()
+    // method. Our is a starter service hence we don't need the onBind() method so we kept it empty.
     @Nullable
     @Override
     public IBinder onBind(Intent intent)
@@ -27,9 +27,9 @@ public class ExampleService extends Service
         return null;
     }
 
-    // onStartCommand() will be called every time when we call startService() method defined in ForegroundActivity.java. Remember that it doesn't start the
-    // background thread instead it runs in main UI thread. However there is sub class ( IntentService ) of Service which automatically creates a local thread
-    // but it is deprecated now. There is similar class called JobIntentService.
+    // onStartCommand() will be called every time when we call startService() method defined in ForegroundActivity.java. Remember that it doesn't start
+    // the background thread instead it runs in main UI thread. However there is sub class ( IntentService ) of Service which automatically creates a
+    // local thread but it is deprecated now. There is similar class called JobIntentService.
     @Override
     public int onStartCommand(Intent intent, int flags, int startId)
     {
@@ -45,7 +45,8 @@ public class ExampleService extends Service
                 .setContentIntent(pendingIntent)
                 .build();
 
-        // Sends the notification which will run in foreground. You can't kill the notification and will run as long as you don't explicitly stop the service.
+        // Sends the notification which will run in foreground. You can't kill the notification and will run as long as you don't explicitly stop the
+        // service.
         startForeground(1, notification);
 
         // stopSelf() will stop the service.

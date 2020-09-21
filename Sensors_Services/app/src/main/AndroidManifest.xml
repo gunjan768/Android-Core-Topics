@@ -16,6 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".bound_service.BoundServiceActivity" />
         <activity android:name=".activity_recognition.RecognitionActivity" />
         <activity android:name=".job_scheduler.JobSchedulerActivity" />
         <activity android:name=".job_intent_service.JobIntentServiceActivity" />
@@ -35,13 +36,13 @@
         <service
             android:name=".job_scheduler.ExampleJobService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
-
         <service
             android:name=".activity_recognition.ActivityRecognitionService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
-        <receiver android:name=".activity_recognition.BroadcastReceiverJobIntentService" />
+        <service android:name=".bound_service.MyService" />
 
+        <receiver android:name=".activity_recognition.BroadcastReceiverJobIntentService" />
     </application>
 
 </manifest>

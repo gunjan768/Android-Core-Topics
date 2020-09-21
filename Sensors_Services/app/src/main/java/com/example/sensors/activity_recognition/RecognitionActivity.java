@@ -26,7 +26,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
 
-public class RecognitionActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener
+public class RecognitionActivity extends AppCompatActivity implements
+        GoogleApiClient.ConnectionCallbacks,
+        GoogleApiClient.OnConnectionFailedListener
 {
     private static final String TAG = "RecognitionActivity";
 
@@ -105,15 +107,15 @@ public class RecognitionActivity extends AppCompatActivity implements GoogleApiC
     // Generic interface for receiving a callback result from someone. Use this by creating a subclass and extends onReceiveResult(int, Bundle)
     public class MyReceiver extends ResultReceiver
     {
-        // Create a new ResultReceive to receive results. Your onReceiveResult(int, Bundle) method will be called from the thread running handler if given,
-        // or from an arbitrary thread if null.
+        // Create a new ResultReceive to receive results. Your onReceiveResult(int, Bundle) method will be called from the thread running handler
+        // if given, or from an arbitrary thread if null.
         public MyReceiver(Handler handler)
         {
             super(handler);
         }
 
-        // Deliver a result to this receiver. Will call onReceiveResult(int, Bundle), always asynchronously if the receiver has supplied a Handler in which to
-        // dispatch the result.
+        // Deliver a result to this receiver. Will call onReceiveResult(int, Bundle), always asynchronously if the receiver has supplied a Handler
+        // in which to dispatch the result.
         @Override
         public void send(int resultCode, Bundle resultData)
         {

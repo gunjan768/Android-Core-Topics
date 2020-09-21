@@ -38,4 +38,13 @@ dependencies {
     // the number of methods in your app (including framework APIs, library methods, and your own code) under the 65,536 limit. From version 6.5,
     // you can instead selectively compile Google Play service APIs into your app.
     implementation 'com.google.android.gms:play-services-location:17.0.0'
+
+    // For lifecycle
+    def lifecycle_version = "2.2.0"
+    def arch_version = "2.1.0"
+
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
 }
